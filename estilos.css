@@ -1,0 +1,37 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+main{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    border: 1px solid salmon;
+    }
+    .filt{
+        width: 20%;
+        height: 80%;
+        padding: 3px;
+        margin: 3px;
+        border-radius: 5px;
+        border: 3px solid black;
+        }
+
+    .prod{
+        width: 80%;
+        }
+        .prod div{
+            flex-flow: wrap;
+            align-items: self-start;
+            justify-content: start;
+            display: inline-flex;
+            width: 24%;
+            height: 36%;
+            padding: 3px;
+            margin: 3px;
+            border-radius: 5px;
+            border: 3px solid black;
+        }
+
