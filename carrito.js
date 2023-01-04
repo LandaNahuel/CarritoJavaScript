@@ -25,8 +25,13 @@ const productos = [
     {id:24, cat: "La Huerta", nombre:"Lechuga", desc:"Organica", pres:"por Kg", precio:170},
     {id:25, cat: "La Huerta", nombre:"Tomate", desc:"Organico", pres:"por Kg", precio:250},
 ]
-
+let carrito = []
 let contenedor =document.getElementById("contenedor");
+
+document.addEventListener('DOMContentLoaded', () => {
+    carrito = JSON.parse(localStorage.getItem('carrito')) || []
+    mostrarCarrito()
+})
 
 productos.forEach(productos => {
     let div= document.createElement("div");
@@ -49,6 +54,13 @@ productos.forEach(productos => {
 
 
 })
+
+
+
+
+
+
+
 
 
 /*
