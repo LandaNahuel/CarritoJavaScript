@@ -42,14 +42,10 @@ productos.forEach(productos => {
     contenedor.append(div);
     let boton = document.getElementById(`boton${productos.id}`)
 
-    const ejecutar = (id) => {
-        localStorage.setItem("favoritos", JSON.stringify (id));
+    const ejecutar = (id,precio) => {
+        localStorage.setItem("favoritos", JSON.stringify (productos.id,productos.precio));
     }
     boton.addEventListener("click", () => ejecutar (productos.id,));
-
-    
-    favoritos.push()
-
 
 
 })
