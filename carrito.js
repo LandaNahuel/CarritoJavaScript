@@ -1,3 +1,4 @@
+//Aca declaramos el listado de productos
 const productos = [
     {id:1, cat: "Cafe", nombre:"Bonafide", desc:"Cafe en granos torrado suabe", pres:"paquete por 250gr", precio:639},
     {id:2, cat: "Cafe", nombre:"La Virgina", desc:"Cafe en granos torrado intenso", pres:"paquete por 500gr", precio:1129},
@@ -25,45 +26,19 @@ const productos = [
     {id:24, cat: "La Huerta", nombre:"Lechuga", desc:"Organica", pres:"por Kg", precio:170},
     {id:25, cat: "La Huerta", nombre:"Tomate", desc:"Organico", pres:"por Kg", precio:250},
 ]
-/*
-let carrito = []
-let contenedor =document.getElementById("contenedor");
 
-document.addEventListener('DOMContentLoaded', () => {
-    carrito = JSON.parse(localStorage.getItem('carrito')) || []
-    mostrarCarrito()
-})
+//Aqui debajo tenemos los elementos que llamamos del HTML usando el ID que le asignamos 
+let contenedor =document.getElementById("contenedor"); //Este nos sirve para trabajar en el contenedor donde van a estar alojados todos los productos en el HTML
+let contenedorCarrito =document.getElementById("contenedor-carrito");//Este para ir cargando los productos agregados al carrito
+let vaciarCarrito = document.getElementById("vaciarCarrito");//Este es nuestro enlace entre el boton de VACIAR CARRITO en el HTML con la funcion
 
-productos.forEach(productos => {
-    let div= document.createElement("div");
-    div.innerHTML = `
-    <h2>${productos.nombre}</h2>
-    <p>Categoria: ${productos.cat}</p>
-    <p>Descripcion: ${productos.desc}</p>
-    <p>Presentacion: ${productos.pres}</p>
-    <p>Precio: $${productos.precio}</p>
-    <button id=boton${productos.id}> Agregar </button>
-    `;
-
-    contenedor.append(div);
-    let boton = document.getElementById(`boton${productos.id}`)
-
-    const ejecutar = (id,precio) => {
-        localStorage.setItem("favoritos", JSON.stringify (productos.id,productos.precio));
-    }
-    boton.addEventListener("click", () => ejecutar (productos.id,));
-
-
-})*/
-
-let contenedor =document.getElementById("contenedor");
-let contenedorCarrito =document.getElementById("contenedor-carrito")
-let vaciarCarrito = document.getElementById("vaciarCarrito")
+//Esta variable la declaramos vacia, peor nos va a servir para ir almacenando todos los productos que vamos a ir agregando al carrito por medio de una funcion 
 let carrito = []
 
-vaciarCarrito.addEventListener("click", () => {
-    carrito.length = 0
-    actualizarCarrito()
+//Aca creamos una funcion que borra todos los elementos agregados al carrito
+vaciarCarrito.addEventListener("click", () => { //declaramos un evento de tipo click
+    carrito.length = 0 //creamos una funcion para ese evento click que lleve a 0 nuestro array carrito
+    actualizarCarrito() //llamamos la funcion de actualizar carrito
 })
 
 
