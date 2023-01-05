@@ -54,35 +54,7 @@ productos.forEach(productos => {
     boton.addEventListener("click", () => ejecutar (productos.id,));
 
 
-})*/
-
-let contenedor =document.getElementById("contenedor");
-
-let carrito = []
-
-productos.forEach(productos => {
-    let div= document.createElement("div");
-    div.innerHTML = `
-    <h2>${productos.nombre}</h2>
-    <p>Categoria: ${productos.cat}</p>
-    <p>Descripcion: ${productos.desc}</p>
-    <p>Presentacion: ${productos.pres}</p>
-    <p>Precio: $${productos.precio}</p>
-    <button id=boton${productos.id}> Agregar </button>
-    `;
-
-    contenedor.append(div);
-
-    let boton = document.getElementById(`boton${productos.id}`)
-
-    //const ejecutar = (id,precio) => {
-    //    localStorage.setItem("favoritos", JSON.stringify (productos.id,productos.precio));
-    //}
-    boton.addEventListener("click", () => agregarCarrito (productos.id,));
 })
+*/
 
-const agregarCarrito = (prodId) => {
-    const item = productos.find ((prod) => prod.id === prodId)
-    carrito.push(item)
-    localStorage.setItem("favoritos", JSON.stringify (carrito));
-}
+const contenedor = document.getElementById(`contenedor`);
