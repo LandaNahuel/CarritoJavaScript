@@ -57,8 +57,15 @@ productos.forEach(productos => {
 })*/
 
 let contenedor =document.getElementById("contenedor");
-
+let contenedorCarrito =document.getElementById("contenedor-carrito")
+let vaciarCarrito = document.getElementById("vaciarCarrito")
 let carrito = []
+
+vaciarCarrito.addEventListener("click", () => {
+    carrito.length = 0
+    actualizarCarrito()
+})
+
 
 productos.forEach(productos => {
     let div= document.createElement("div");
@@ -75,14 +82,36 @@ productos.forEach(productos => {
 
     let boton = document.getElementById(`boton${productos.id}`)
 
-    //const ejecutar = (id,precio) => {
-    //    localStorage.setItem("favoritos", JSON.stringify (productos.id,productos.precio));
-    //}
     boton.addEventListener("click", () => agregarCarrito (productos.id,));
 })
 
 const agregarCarrito = (prodId) => {
     const item = productos.find ((prod) => prod.id === prodId)
     carrito.push(item)
-    localStorage.setItem("favoritos", JSON.stringify (carrito));
+    actualizarCarrito()
+    localStorage.setItem("carrito", JSON.stringify (carrito));
 }
+const eliminarDelCarrito= (prodId) =>{
+    const item = carrito.find ((prod) => prod.id === prodId)
+    const indice= carrito.indexOf (item)
+    carrito.splice(indice, 1)
+    actualizarCarrito()
+}
+
+
+const actualizarCarrito = () =>{
+    contenedorCarrito.innerHTML=""
+
+    carrito.forEach(prod => {
+        let div = document.createElement(`div`)
+        div.innerHTML =`
+        <p>${prod.nombre}</p>
+        <p>Precio: $${prod.precio}</p>
+        <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
+        <button onclick = "eliminarDelCarrito(${prod.id})">Eliminar🗑️</button>
+        `
+        contenedorCarrito.appendChild(div)
+    })
+
+}
+

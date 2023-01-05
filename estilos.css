@@ -11,7 +11,7 @@ main{
     border: 1px solid salmon;
     }
     .filt{
-        width: 20%;
+        width: 15%;
         height: 80%;
         padding: 3px;
         margin: 3px;
@@ -20,21 +20,35 @@ main{
         }
 
     .prod{
-        width: 80%;
+        width: 60%;
         display: flex;
         flex-flow: wrap;
+        justify-content: space-around;
         }
         .prod div{
             flex-flow: wrap;
-            align-items: self-start;
-            justify-content: start;
-            display: inline-flex;
-            width: 24%;
+            align-items: stretch;
+            justify-content: space-evenly;
+            display: flex;
+            width: 30%;
             height: 36%;
             padding: 3px;
             margin: 3px;
             border-radius: 5px;
             border: 3px solid black;
             flex-direction: column;
+        }
+    .carr{
+        width: 25%;
+        height: 80%;
+        padding: 3px;
+        margin: 3px;
+        border-radius: 5px;
+        border: 3px solid black;
+        }
+        #vaciarCarrito{
+            border-radius: 5px;
+            border: 1px solid black;
+            background-color: aqua;
         }
 
