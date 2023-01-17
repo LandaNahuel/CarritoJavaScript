@@ -6,34 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
     <link rel="stylesheet" href="./estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
-        <section class="filt" id="filtro">
-            <div>ACA VA UN filtro
-                <form action="">
-                    <div>
-                        <label for="">Cotegoria:</label>
-                        <select name="" id="">
-                            <option value="todas">Todas</option>
-                            <option value="cafe">Cafe</option>
-                            <option value="vajilla">Vajilla</option>
-                            <option value="remeras">Remeras</option>
-                            <option value="huerta">Huerta</option>
-                            <option value="yogurt">Yogurt</option>
-                        </select>
-                    </div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </form>
-            </div>
-        </section>
-        <section class="prod" id="contenedor"></section>
         <section class="carr" >AGREGADOS AL CARRITO
+            <h4 id="contadorItm">0</h4>
             <div id="contenedor-carrito"></div>
             <button id="vaciarCarrito">Vaciar Carrito</button>
+            <h3>Precio total: $<span id="sumaCarrito">0</span></h3>
         </section>
+        <section class="prod" id="contenedor"></section>
     </main>
     <script src="./carrito.js"></script>
 </body>
