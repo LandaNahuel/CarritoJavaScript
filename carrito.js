@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Aca creamos una funcion que borra todos los elementos agregados al carrito
 vaciarCarrito.addEventListener("click", () => { //declaramos un evento de tipo click
+    localStorage.clear() 
     carrito.length = 0 //creamos una funcion para ese evento click que lleve a 0 nuestro array carrito
     actualizarCarrito() //llamamos la funcion de actualizar carrito
 })
