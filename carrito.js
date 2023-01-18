@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Aca creamos una funcion que borra todos los elementos agregados al carrito
 vaciarCarrito.addEventListener("click", () => { //declaramos un evento de tipo click
-    localStorage.clear() 
+    localStorage.clear()
     carrito.length = 0 //creamos una funcion para ese evento click que lleve a 0 nuestro array carrito
     actualizarCarrito() //llamamos la funcion de actualizar carrito
 })
@@ -71,20 +71,15 @@ productos.forEach(productos => { //Usamos un forEach para que por cada producto.
 
 const agregarCarrito = (prodId) => {//cramos un funcion que...
     const existe= carrito.some(prod => prod.id === prodId)
-
     if(existe){
         const prod = carrito.some (prod => {
-            if(prod.id === prodId){
-                prod.cantidad++
-            }
+            prod.id === prodId && prod.cantidad++
         })
-    } else{
-
+    }else{
     const item = productos.find ((prod) => prod.id === prodId)//..tomando como parametro el ID del producto...
     carrito.push(item)//...agregamos el producto...
-    //console.log(carrito)
     localStorage.setItem("carrito", JSON.stringify (carrito));//...a travez de esta linea enviamos el estado del carrito al local storage de una manera que lo reconozca como un array usando JSON
-}
+    }
 actualizarCarrito()//...y llamamos la funcion que actualiza el estado del carrito
 }
 
