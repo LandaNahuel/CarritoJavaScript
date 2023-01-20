@@ -53,7 +53,9 @@ vaciarCarrito.addEventListener("click", () => { //declaramos un evento de tipo c
 
 
 productos.forEach(productos => { //Usamos un forEach para que por cada producto...
+    
     let div= document.createElement("div");//...se cree un elemento div...
+    
     div.innerHTML = //...y que por dentro contenga los siguientes elementos
     `<h2>${productos.nombre}</h2>
     <p>Categoria: ${productos.cat}</p>
@@ -62,14 +64,16 @@ productos.forEach(productos => { //Usamos un forEach para que por cada producto.
     <p>Precio: $${productos.precio}</p>
     <button id=boton${productos.id}> Agregar </button>
     `;
-
+    
     contenedor.append(div);//esta linea inserta el div que creamos en contenedor del HTML
-
+    
     let boton = document.getElementById(`boton${productos.id}`)//Aca llamamos al boton que se genera en cada producto creado
     boton.addEventListener("click", () => agregarCarrito (productos.id,));//...le asignamos un evento tipo click que llama a una funcion
+    
 })
 
 const agregarCarrito = (prodId) => {//cramos un funcion que...
+    setTimeout(() => {
     const existe= carrito.some(prod => prod.id === prodId)
 
     if(existe){
@@ -81,12 +85,16 @@ const agregarCarrito = (prodId) => {//cramos un funcion que...
     } else{
 
     const item = productos.find ((prod) => prod.id === prodId)//..tomando como parametro el ID del producto...
+    
     carrito.push(item)//...agregamos el producto...
+    
     //console.log(carrito)
     localStorage.setItem("carrito", JSON.stringify (carrito));//...a travez de esta linea enviamos el estado del carrito al local storage de una manera que lo reconozca como un array usando JSON
 }
 actualizarCarrito()//...y llamamos la funcion que actualiza el estado del carrito
+}, 1000)
 }
+
 
 const eliminarDelCarrito= (prodId) =>{//cramos un funcion que...
     const item = carrito.find ((prod) => prod.id === prodId)//..tomando como parametro el ID del producto...
