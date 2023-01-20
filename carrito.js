@@ -54,9 +54,7 @@ const agregarCarrito = (prodId) => {
     const existe= carrito.some(prod => prod.id === prodId)//con esta funcion logramos que los productos se sumen en una sola linea siempre y cuando se repitan
     if(existe){
         const prod = carrito.some (prod => {
-            if(prod.id === prodId){
-                prod.cantidad++
-            }
+            prod.id === prodId && prod.cantidad++
         })
     } else{
 
